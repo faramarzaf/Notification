@@ -1,24 +1,18 @@
 package com.faramarz.tictacdev.notification;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-
 import android.app.DownloadManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import java.io.File;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,18 +23,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bind();
-
+        clickEvents();
     }
 
     private void bind() {
         btnSimple = findViewById(R.id.btnSimple);
         btnDownload = findViewById(R.id.btnDownload);
         btnExpand = findViewById(R.id.btnExpand);
+
+    }
+
+    private void clickEvents() {
         btnSimple.setOnClickListener(this);
         btnDownload.setOnClickListener(this);
         btnExpand.setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View v) {
